@@ -1,5 +1,6 @@
 import "./style.css";
 
+import { initBlobCursor } from "./cursor";
 import { invitationData } from "./invitation-data";
 import { renderInvitation } from "./invitation-template";
 import { prepareParticles, startParticles } from "./particles";
@@ -10,7 +11,7 @@ function flap(side: FlapSide): string {
   return `
     <div class="flap flap--${side}">
       <img
-        src="/images/flap-${side}.png"
+        src="/images/flap-${side}.webp"
         alt=""
         draggable="false"
       />
@@ -25,11 +26,11 @@ if (!app) {
 }
 
 const assetUrls = [
-  "/images/flap-top.png",
-  "/images/flap-bottom.png",
-  "/images/flap-left.png",
-  "/images/flap-right.png",
-  "/images/wax-seal.png",
+  "/images/flap-top.webp",
+  "/images/flap-bottom.webp",
+  "/images/flap-left.webp",
+  "/images/flap-right.webp",
+  "/images/wax-seal.webp",
 ];
 
 async function preloadImage(src: string): Promise<HTMLImageElement> {
@@ -56,6 +57,10 @@ app.innerHTML = `
         ${renderInvitation(invitationData)}
 
         <div class="flap-cover" aria-hidden="true">
+            <div class="flap-shadow flap-shadow--top"></div>
+            <div class="flap-shadow flap-shadow--bottom"></div>
+            <div class="flap-shadow flap-shadow--left"></div>
+            <div class="flap-shadow flap-shadow--right"></div>
             ${flap("top")}
             ${flap("bottom")}
             ${flap("left")}
@@ -70,7 +75,7 @@ app.innerHTML = `
           aria-expanded="false"
         >
           <img
-            src="/images/wax-seal.png"
+            src="/images/wax-seal.webp"
             alt=""
             draggable="false"
           />
@@ -178,4 +183,5 @@ retryButton.addEventListener("click", () => {
   void loadAssets();
 });
 
+initBlobCursor();
 void loadAssets();

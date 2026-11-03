@@ -83,17 +83,17 @@ export const invitationData: InvitationData = {
     placeholderLabel: "YOUR PHOTO HERE",
     photos: [
       {
-        src: "images/image.jpg",
+        src: "images/image.webp",
         alt: "Us together",
         caption: "Where it all began",
       },
       {
-        src: "images/image.jpg",
+        src: "images/image.webp",
         alt: "Our travels",
         caption: "Our little adventures",
       },
       {
-        src: "images/image.jpg",
+        src: "images/image.webp",
         alt: "Our engagement",
         caption: "The easiest yes",
       },
